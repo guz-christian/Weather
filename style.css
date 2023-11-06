@@ -1,0 +1,81 @@
+/* Please read */
+/* Everything below should go on your .css doc*/
+/*
+Please pay attention to the simple structure of css.
+
+Object {
+    What you want to change: How you want to change it;
+    What you want to change: How you want to change it;
+    What you want to change: How you want to change it;
+}
+----------------------------------------------------------------------
+you can target all tags on the html by simply using the same html tag.
+
+to target all <button></button> tags you would simply do
+button {
+
+}
+
+or all <div></div> tags by
+div {
+}
+
+-----------------------------------------------------------------------------
+
+to target any class="example" you need to use a dot
+.example {
+}
+
+ */
+.card {
+    border-style: solid;
+    border-radius: 5px;
+}
+
+
+.main.card {  /*putting two labels together will target any object that contains both labels*/
+    width: 50%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10%;
+    padding: 10px;
+    background-color: rgba(207, 193, 203, 0.30);
+}
+
+.main .card{ /*putting a space between two labels will create a parent/child relationship. the first label would be the parent. this targets objects that live inside the parent objects */
+    display: none;
+
+    border-width: 1.5px;
+    padding: 10px;
+    margin-block: 10px;
+    margin-inline: 10px;
+    font-weight: bold;
+    
+    background-color: rgba(207, 193, 203, 0.30);
+}
+
+input, button { /* the , targets all objects individually*/
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    
+    font-size: 20px;
+    padding: 5px;
+
+}
+
+.input {
+    display: inline-block;
+
+    padding: 5px;
+
+    border-style: solid;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,44 @@
+
+<!-- Please Read 
+The following below should be on the html doc
+
+The script tag might not work for you. 
+
+If you have no search button, you can fix this by going to https://fontawesome.com/start and getting your own key (the random number at the end of the link in the script tag)
+
+Or you can remove the script tag and simply type 'search in the button tag. <button>search</button>'
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Weather Check</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://kit.fontawesome.com/85fb80a0b7.js" crossorigin="anonymous"></script>
+	
+</head>
+
+<body>
+	<div class="card main" id="background">
+		<h1 class="location">Todays Weather</h1>
+		<div class="input">
+			<input class="search-bar" type="text" placeholder="Search">
+			<button class="search-button fa-solid fa-magnifying-glass" type="submit"></button>
+			
+		</div>
+		<div class="card stats">
+			<p class="temp"></p>
+			<p class="humidity"></p>
+		</div>
+		<div class="card advice">
+			<p class="feels-like"></p>
+			<p class="notes"></p>	
+		</div>
+	</div>
+
+	<script type="text/javascript" src="logic.js"></script>
+</body>
+</html>
