@@ -38,7 +38,7 @@ to target any class="example" you need to use a dot
     max-width: 400px;
     margin: auto;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 40px;
     padding: 10px;
     background-color: rgba(207, 193, 203, 0.30);
 }
@@ -79,6 +79,16 @@ button:hover {
 }
 
 body{
+    margin: 0;
     background-image: url("images/pngtree-hand-drawn-blue-sky-white-clouds-weather-forecast-illustration-background-picture-image_1137685.jpg");
+}
+
+@media (max-width: 600px) {
+    .main.card {
+        width: 100%;
+        border-style: none;
+        margin-top: 50%;
+    }
+    
 }
 
