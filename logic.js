@@ -1,10 +1,12 @@
+
+
 let weather = {
-	apiKey: '67178ebe8a9cdfb17009241a9860e511',
+	weatherKey: "9e1ad5dc29ebaf5a534ead4c5305b5af",
 	getLocation: function(city) {
 		fetch('http://api.openweathermap.org/geo/1.0/direct?q='
 			+ city
 			+'&limit=1&appid='
-			+ this.apiKey)
+			+ this.weatherKey)
 
 		.then((response) => response.json())
 		.then((locationData) => this.getWeather(locationData));
@@ -16,7 +18,7 @@ let weather = {
 			+ lat 
 			+'&lon=' + lon 
 			+ '&appid='
-			+ this.apiKey)
+			+ this.weatherKey)
 		.then((response) => response.json())
 		.then((weatherData) => this.displayWeather(weatherData,name,state));
 	},
@@ -52,10 +54,17 @@ let weather = {
 	},
 
 	changeBackground: function(imageData){
-		const {web} = imageData["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_embedded"]["ua:images"]["photos"][0]["image"];
-		console.log(web)
 
-        document.querySelector("body").style.backgroundImage = "url(" + web + ")";
+		try {
+			const {web} = imageData["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_embedded"]["ua:images"]["photos"][0]["image"];
+			document.querySelector("body").style.backgroundImage = "url(" + web + ")";
+		  } catch (error) {
+			document.querySelector("body").style.backgroundImage = "url(images/pngtree-hand-drawn-blue-sky-white-clouds-weather-forecast-illustration-background-picture-image_1137685.jpg)";
+			// handle the error
+		  }
+		  
+
+	
 	}
 };
 
