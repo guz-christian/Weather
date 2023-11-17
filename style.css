@@ -31,7 +31,7 @@ to target any class="example" you need to use a dot
 /* Basic styling */
 body{
     margin: 0;
-    padding-block: 40px;
+    padding-block: 5%;
 
     font-family: cursive;
     text-align: center;
@@ -58,17 +58,26 @@ input, button { /* the , targets all objects individually*/
     border-style: solid;
     border-radius: 5px;
 }
+.change-unit{
+    display: block;
+    margin: auto;
+}
 
-button,.change-unit:hover {
+button:hover {
+    cursor: pointer;
+}
+
+.change-unit:hover{
+    transform: scale(1.02);
     cursor: pointer;
 }
 
 
 .card {
-    margin-block:10px;
+    margin-block:5%;
     border-style: solid;
     border-width: 3.5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 
@@ -110,8 +119,9 @@ img{
     .main.card {
         width: 100%;
         border-style: none;
-        margin-top: 50%;
     }
+
+
     
 }
 

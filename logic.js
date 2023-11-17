@@ -75,7 +75,7 @@ let weather = {
 		if(this.unit.word === "imperial"){
 			this.unit.word = "metric";
 			this.unit.symbol = "\u00B0 C";
-			document.querySelector('.change-unit').value = "Change to Imperial";
+			document.querySelector('.change-unit').value = "Change to Fahrenheit";
 		}
 		else{
 			this.unit.word = "imperial";
