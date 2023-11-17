@@ -22,13 +22,18 @@ Or you can remove the script tag and simply type 'search in the button tag. <but
 </head>
 
 <body>
-	<div class="card main" id="background">
-		<h1 class="location">Todays Weather</h1>
-		<div class="input">
+	<div class="card main" id="current-weather">
+		<h1 class="location">Today's Weather</h1>
+
+		<div class="user-input">
 			<input class="search-bar" type="text" placeholder="Search">
-			<button class="search-button fa-solid fa-magnifying-glass" type="submit"></button>
-			
+			<button class="search-button fa-solid fa-magnifying-glass" type="submit"></button>	
 		</div>
+
+		
+		<input class="change-unit" type="button" value="Change to Celcius">
+		
+
 		<div class="card stats">
 			<p class="temp"></p>
 			<p class="humidity"></p>
@@ -38,6 +43,8 @@ Or you can remove the script tag and simply type 'search in the button tag. <but
 			<p class="notes"></p>	
 		</div>
 	</div>
+
+	<img src="" alt="City Image" id="imgId" class="main card">
 
 	<script type="text/javascript" src="logic.js"></script>
 </body>

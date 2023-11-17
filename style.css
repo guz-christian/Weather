@@ -27,32 +27,18 @@ to target any class="example" you need to use a dot
 }
 
  */
-.card {
-    border-style: solid;
-    border-radius: 5px;
-}
 
+/* Basic styling */
+body{
+    margin: 0;
+    padding-block: 40px;
 
-.main.card {  /*putting two labels together will target any object that contains both labels*/
-    width: 50%;
-    max-width: 400px;
-    margin: auto;
+    font-family: cursive;
     text-align: center;
-    margin-top: 40px;
-    padding: 10px;
-    background-color: rgba(207, 193, 203, 0.30);
-}
 
-.main .card{ /*putting a space between two labels will create a parent/child relationship. the first label would be the parent. this targets objects that live inside the parent objects */
-    display: none;
-
-    border-width: 1.5px;
-    padding: 10px;
-    margin-block: 10px;
-    margin-inline: 10px;
-    font-weight: bold;
-    
-    background-color: rgba(207, 193, 203, 0.30);
+    background-image: url("images/default-background.jpg");
+    background-repeat:repeat-y;
+    background-size: 100%;
 }
 
 input, button { /* the , targets all objects individually*/
@@ -62,10 +48,9 @@ input, button { /* the , targets all objects individually*/
     
     font-size: 20px;
     padding: 5px;
-
 }
 
-.input {
+.user-input {
     display: inline-block;
 
     padding: 5px;
@@ -74,15 +59,53 @@ input, button { /* the , targets all objects individually*/
     border-radius: 5px;
 }
 
-button:hover {
+button,.change-unit:hover {
     cursor: pointer;
 }
 
-body{
-    margin: 0;
-    background-image: url("images/pngtree-hand-drawn-blue-sky-white-clouds-weather-forecast-illustration-background-picture-image_1137685.jpg");
+
+.card {
+    margin-block:10px;
+    border-style: solid;
+    border-width: 3.5px;
+    border-radius: 5px;
 }
 
+
+.main.card {  /*putting two labels together will target any object that contains both labels*/
+    text-align: center;
+    margin-inline: auto;
+
+    width: 50%;
+
+    background-color: rgba(207, 193, 203, 0.30);
+}
+
+.main .card{ /*putting a space between two labels will create a parent/child relationship. the first label would be the parent. this targets objects that live inside the parent objects */
+    display: none;
+
+    margin-inline: 10px;
+    margin-block: 10px;
+
+    padding: 10px;
+
+    font-weight: bold;
+    border-width: 1.5px;
+    
+    background-color: rgba(207, 193, 203, 0.30);
+}
+
+#current-weather{
+    max-width: 400px;
+}
+img{
+    display: none;
+    width: 50%;
+    object-fit: contain; 
+}
+
+
+/* responisve breaks */
 @media (max-width: 600px) {
     .main.card {
         width: 100%;
