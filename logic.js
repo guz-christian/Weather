@@ -5,19 +5,19 @@ let weather = {
 	unit: {word:"imperial", symbol: "\u00B0 F"},
 
 	getLocation: function(city) {
-		fetch('http://api.openweathermap.org/geo/1.0/direct?q='
+		return fetch('http://api.openweathermap.org/geo/1.0/direct?q='
 			+ city
 			+'&limit=1&appid='
 			+ this.weatherKey)
 
 		.then((response) => response.json())
-		.then((locationData) => this.getWeather(locationData));
+		// .then((locationData) => this.getWeather(locationData));
 	},
 	
 	getWeather: function(data) {
-		const {lat, lon, name, state} = data[0];
+		const {lat, lon} = data[0];
 		
-		fetch('https://api.openweathermap.org/data/2.5/weather?units='
+		return fetch('https://api.openweathermap.org/data/2.5/weather?units='
 		+ this.unit.word
 		+'&lat='
 		+ lat 
@@ -25,14 +25,14 @@ let weather = {
 		+ '&appid='
 		+ this.weatherKey)
 		.then((response) => response.json())
-		.then((weatherData) => this.displayWeather(weatherData,name,state));
+		// .then((weatherData) => this.displayWeather(weatherData,name,state));
 	},
 
-	displayWeather: function(weatherData,name,state) {
-		const {temp} = weatherData.main;
-		const {feels_like} = weatherData.main;
-		const {humidity} = weatherData.main;
-		const {description} = weatherData.weather[0]
+	displayWeather: function(weatherData,locationData) {
+		const {temp,feels_like,humidity} = weatherData.main;
+		const {description} = weatherData.weather[0];
+		const {name,state} = locationData[0];
+
 		document.querySelector('.stats').style.display = 'inline-block';
 		document.querySelector('.advice').style.display = 'inline-block';
 		document.querySelector('h1').innerText = name +', ' + state;
@@ -40,20 +40,20 @@ let weather = {
 		document.querySelector('.humidity').innerText = 'Humidity: ' + humidity + '%';
 		document.querySelector('.feels-like').innerText = 'Feels Like ' + feels_like + this.unit.symbol;
 		document.querySelector('.notes').innerText = description
-		this.getImage(name);
+		// this.getImage(name);
 	},
 
 	getImage: function(city){
 		const rootUrl = 'https://api.teleport.org/api/cities/?search=';
         const endUrl = '&embed=city:search-results/city:item&embed=city:search-results/city:item/city:urban_area&embed=city:search-results/city:item/city:urban_area/ua:images';
 		
-        fetch(
+        return fetch(
 			rootUrl
             + city
             + endUrl
 			)
 			.then(response => response.json())
-			.then(imageData => this.addImage(imageData))
+			// .then(imageData => this.addImage(imageData))
 	},
 		
 	addImage: function(imageData){	
@@ -67,8 +67,13 @@ let weather = {
 		}		
 	},
 
-	search: function() {
-		this.getLocation(document.querySelector('.search-bar').value);
+	search: async function() {
+		const locationData = await this.getLocation(document.querySelector('.search-bar').value);
+		const weatherData = await this.getWeather(locationData);
+		const imageData = await this.getImage(document.querySelector('.search-bar').value);
+
+		await this.displayWeather(weatherData,locationData);
+		await this.addImage(imageData);
 	},
 	
 	changeUnit: function(){
