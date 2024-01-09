@@ -40,6 +40,7 @@ let weather = {
 		document.querySelector('.humidity').innerText = 'Humidity: ' + humidity + '%';
 		document.querySelector('.feels-like').innerText = 'Feels Like ' + feels_like + this.unit.symbol;
 		document.querySelector('.notes').innerText = description
+
 		// this.getImage(name);
 	},
 
@@ -61,6 +62,7 @@ let weather = {
 			const {web} = imageData["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_embedded"]["ua:images"]["photos"][0]["image"];
 			document.getElementById("imgId").src = web;
 			document.getElementById("imgId").style.display = "inline-block";
+			console.log(imageData)
 		} catch (error) {
 			document.getElementById("imgId").src = "";
 			document.getElementById("imgId").style.display = "none"
